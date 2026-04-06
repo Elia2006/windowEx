@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell", // Changed from cppbuild to shell for better wildcard support
+            "label": "build C file",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "*.c", 
+                "-o",
+                "main_output", // Hardcode the name for a moment to test
+                "-lraylib"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}

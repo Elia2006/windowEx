@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug C program",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/main_output",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "preLaunchTask": "build C file"
+    }
+  ]
+}
