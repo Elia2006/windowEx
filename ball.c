@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "stdlib.h"
 #include "raylib.h"
 #include "raymath.h"
@@ -7,8 +8,8 @@
 struct Node *createBalls(int screenWidth, int screenHeight) {
     struct Node *head = NULL;
     struct Node *prevNode = NULL;
-    for(int x = 10; x < screenWidth; x += 30) {
-        for(int y = 10; y < screenHeight; y += 30) {
+    for(int x = 10; x < screenWidth; x += 100) {
+        for(int y = 10; y < screenHeight; y += 100) {
             struct Ball *ball = malloc(sizeof(struct Ball));
             ball->pos.x = x;
             ball->pos.y = y;
@@ -86,17 +87,19 @@ void updateAcc(Vector2 *acc, float accValue) {
 }
 
 void applyVelocity(struct Node *head, float friction) {
+
+
     struct Node *temp = head;
     while(temp != NULL) {
         struct Ball *thisBall = temp->value;
 
 
-        float speed = Vector2Length(thisBall->vel);
-        if(speed > 0.0) {
-            speed -= friction * GetFrameTime();
-            if(speed < 0) speed = 0;
-            thisBall->vel = Vector2Scale(Vector2Normalize(thisBall->vel), speed);
-        }
+        //float speed = Vector2Length(thisBall->vel);
+        //if(speed > 0.0) {
+        //    speed -= friction * GetFrameTime();
+        //    if(speed < 0) speed = 0;
+        //    thisBall->vel = Vector2Scale(Vector2Normalize(thisBall->vel), speed);
+        //}
 
         thisBall->pos.x += thisBall->vel.x * GetFrameTime();
         thisBall->pos.y += thisBall->vel.y * GetFrameTime();
